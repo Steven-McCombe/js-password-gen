@@ -1,36 +1,63 @@
 // Assignment Code
+
+var charLength;
+
+// setting all cases to true unless user input on confirm boxes changes value.
+var checkUpper = true
+var checkLower = true
+var checkNum = true
+var checkChar = true
+
 var generateBtn = document.querySelector("#generate");
 
-// !GIVEN I need a new, secure password
-// !WHEN I click the button to generate a password
-// THEN I am presented with a series of prompts for password criteria
-// WHEN prompted for password criteria
-// THEN I select which criteria to include in the password
-// WHEN prompted for the length of the password
-// THEN I choose a length of at least 8 characters and no more than 128 characters
-// WHEN asked for character types to include in the password
-// THEN I confirm whether or not to include lowercase, uppercase, numeric, and/or special characters
-// WHEN I answer each prompt
-// THEN my input should be validated and at least one character type should be selected
-// WHEN all prompts are answered
-// THEN a password is generated that matches the selected criteria
-// WHEN the password is generated
-// THEN the password is either displayed in an alert or written to the page
+function addCriteria() {
+  checkUpper = confirm("Do you want your password to contain Uppercase?");
+  checkLower = confirm("Do you want your password to contain Lowercase?");
+  checkNum = confirm("Do you want your password to contain Numbers?");
+  checkChar = confirm("Do you want your password to contain Special Characters?");
+}
 
-// TODO: WE NEED A WAY TO STORE THE USER'S CHOICE FOR LENGTH OF PASSWORD 
+// if user failed to select any criteria alert and rerun the prompts
+function checkCriteria() {
+  if (!checkUpper && !checkLower && !checkNum && !checkChar) {
+    alert("You must select ok for at least one of the following criteria"), addCriteria();
+  }
+}
+
+function generatePassword() {
+  //  Asks user for password length input
+  charLength = prompt("Choose a password length");
+  // Checks if input is meets character length criteria, if not it recalls the function after alert has been acknowledged 
+  if (charLength < 8 || charLength > 128) {
+    alert("Minimum 8 & Maximum 128 character length"), generatePassword();
+  } else {
+    // 
+    addCriteria()
+    checkCriteria()
+};
+}
+
+generatePassword()
+
+
+
+
+
+// DONE: WE NEED A WAY TO STORE THE USER'S CHOICE FOR LENGTH OF PASSWORD 
 // TODO: PROMPT THE USER FOR THE LENGTH OF THE PASSWORD
   //IF THE USER CHOOSES A NUMBER OUTSIDE THE ACCEPTABLE RANGE, NEED TO DO SOMETHING
   //ALERT THAT THE VALIDATION FAILED
   //RETURN BACK TO THE PROMPT OR
     //EXIT OUT OF THE FUNCTION
+    // !Need to add something that checks for int values only. 
 
-// TODO: NEED VARIABLE STORING EACH OF OUR CHARACTER SETS -- ARRAYS?"
+// DONE: NEED VARIABLE STORING EACH OF OUR CHARACTER SETS -- ARRAYS?"
     // UPPERCASE
     // LOWERCASE
     // NUMBERS
     // SPECIAL CHARACTERS
-// TODO: NEED A VARIABLE TO STORE THE USER;S CHOICE FOR WHETHER TO USE EACH CHARACTER SET
-// TODO: IF THE USER FAILS TO SELECT ANY CHARACTER, NEED TO DO SOMETHING
+// DONE: NEED A VARIABLE TO STORE THE USERS CHOICE FOR WHETHER TO USE EACH CHARACTER SET
+// DONE: IF THE USER FAILS TO SELECT ANY CHARACTER, NEED TO DO SOMETHING
   //ALERT THAT THE VALIDATION FAILED
   //RETURN BACK TO THE PROMPT OR
     //EXIT OUT OF THE FUNCTION
@@ -50,6 +77,7 @@ var generateBtn = document.querySelector("#generate");
 // A FUNCTION CAN CALL ITSELF WINK WINK.
 
 // Write password to the #password input
+
 function writePassword() {
   var password = generatePassword();
   var passwordText = document.querySelector("#password");
@@ -59,4 +87,4 @@ function writePassword() {
 }
 
 // Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
+generateBtn.addEventListener("click", writePassword)

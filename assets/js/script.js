@@ -3,13 +3,29 @@
 var charLength;
 
 // setting all cases to true unless user input on confirm boxes changes value.
-var checkUpper = true
-var checkLower = true
-var checkNum = true
-var checkChar = true
+var checkUpper = true;
+var checkLower = true;
+var checkNum = true;
+var checkChar = true;
 
+// Generate Button 
 var generateBtn = document.querySelector("#generate");
 
+// Criteria Arrays ("i" & "l" removed as they look similar in certain fonts )
+var isLower = ["a", "b", "c", "d", "e", "f", "g", "h", "j", "k", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
+// Converts the lowercase array to uppercase
+var isUpper = isLower.map(element => {
+  return element.toUpperCase();
+});
+var isNum = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
+var isChar = ["!", "#", "$", "%", "&","'","(", ")", "*", "+", "-"];
+
+// console.log({isChar})
+// console.log({isNum})
+// console.log({isUpper})
+// console.log({isLower})
+
+// Requests user input on  
 function addCriteria() {
   checkUpper = confirm("Do you want your password to contain Uppercase?");
   checkLower = confirm("Do you want your password to contain Lowercase?");
@@ -30,6 +46,8 @@ function generatePassword() {
   // Checks if input is meets character length criteria, if not it recalls the function after alert has been acknowledged 
   if (charLength < 8 || charLength > 128) {
     alert("Minimum 8 & Maximum 128 character length"), generatePassword();
+  // TODO } else if Need to add an else if to check if the input is !integer
+  
   } else {
     // 
     addCriteria()
@@ -49,7 +67,7 @@ generatePassword()
   //ALERT THAT THE VALIDATION FAILED
   //RETURN BACK TO THE PROMPT OR
     //EXIT OUT OF THE FUNCTION
-    // !Need to add something that checks for int values only. 
+    // !Need to add something that checks for int values only.
 
 // DONE: NEED VARIABLE STORING EACH OF OUR CHARACTER SETS -- ARRAYS?"
     // UPPERCASE
@@ -77,6 +95,8 @@ generatePassword()
 // A FUNCTION CAN CALL ITSELF WINK WINK.
 
 // Write password to the #password input
+
+
 
 function writePassword() {
   var password = generatePassword();

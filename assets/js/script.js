@@ -1,5 +1,4 @@
-// Assignment Code
-
+// Stores user number input:
 var charLength;
 
 // setting all cases to true unless user input on confirm boxes changes value.
@@ -21,11 +20,8 @@ var isNum = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 var isChar = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", "-"];
 // Concatenate selected arrays to one final array
 var finalCriteria = []
-
-// console.log({isChar})
-// console.log({isNum})
-// console.log({isUpper})
-// console.log({isLower})
+// Final Password 
+var finalPassword = ""
 
 // Requests user input on  
 function addCriteria() {
@@ -42,7 +38,7 @@ function checkCriteria() {
   }
 }
 
-
+// !change the name of this function 
 function generatePassword() {
   //  Asks user for password length input
   charLength = prompt("Choose a password length");
@@ -77,6 +73,10 @@ if (checkChar === true) {
 
 console.log(finalCriteria)
 
+for (var i = 0; i < charLength; i++) {
+  var finalPassword = finalCriteria[Math.floor(Math.random() * finalCriteria.length)];
+  console.log(finalPassword);
+}
 // DONE: WE NEED A WAY TO STORE THE USER'S CHOICE FOR LENGTH OF PASSWORD 
 // TODO: PROMPT THE USER FOR THE LENGTH OF THE PASSWORD
   //IF THE USER CHOOSES A NUMBER OUTSIDE THE ACCEPTABLE RANGE, NEED TO DO SOMETHING

@@ -18,7 +18,9 @@ var isUpper = isLower.map(element => {
   return element.toUpperCase();
 });
 var isNum = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
-var isChar = ["!", "#", "$", "%", "&","'","(", ")", "*", "+", "-"];
+var isChar = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", "-"];
+// Concatenate selected arrays to one final array
+var finalCriteria = []
 
 // console.log({isChar})
 // console.log({isNum})
@@ -40,6 +42,7 @@ function checkCriteria() {
   }
 }
 
+
 function generatePassword() {
   //  Asks user for password length input
   charLength = prompt("Choose a password length");
@@ -57,9 +60,22 @@ function generatePassword() {
 
 generatePassword()
 
+//if statements to concatenate arrays into one. 
 
+if (checkUpper === true) {
+  finalCriteria = finalCriteria.concat(isUpper)
+}
+if (checkLower === true) {
+  finalCriteria = finalCriteria.concat(isLower)
+}
+if (checkNum === true) {
+  finalCriteria = finalCriteria.concat(isNum)
+}
+if (checkChar === true) {
+  finalCriteria = finalCriteria.concat(isChar)
+}
 
-
+console.log(finalCriteria)
 
 // DONE: WE NEED A WAY TO STORE THE USER'S CHOICE FOR LENGTH OF PASSWORD 
 // TODO: PROMPT THE USER FOR THE LENGTH OF THE PASSWORD

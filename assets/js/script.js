@@ -18,11 +18,12 @@ var isUpper = isLower.map(element => {
 });
 var isNum = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
 var isChar = ["!", "#", "$", "%", "&", "'", "(", ")", "*", "+", "-"];
+
 // Concatenate selected arrays to one final array
 var finalCriteria = []
 // Final Password 
 var finalPassword = ""
-
+var passwordText = ""
 // Requests user input on  
 function addCriteria() {
   checkUpper = confirm("Do you want your password to contain Uppercase?");
@@ -74,9 +75,15 @@ if (checkChar === true) {
 console.log(finalCriteria)
 
 for (var i = 0; i < charLength; i++) {
-  var finalPassword = finalCriteria[Math.floor(Math.random() * finalCriteria.length)];
-  console.log(finalPassword);
+  finalPassword += finalCriteria[Math.floor(Math.random() * finalCriteria.length)];
+  passwordText = finalPassword;
+  // console.log(finalPassword)
+  // console.log(passwordText)
 }
+
+console.log(passwordText);
+
+
 // DONE: WE NEED A WAY TO STORE THE USER'S CHOICE FOR LENGTH OF PASSWORD 
 // TODO: PROMPT THE USER FOR THE LENGTH OF THE PASSWORD
   //IF THE USER CHOOSES A NUMBER OUTSIDE THE ACCEPTABLE RANGE, NEED TO DO SOMETHING
@@ -124,3 +131,4 @@ function writePassword() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword)
+

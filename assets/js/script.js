@@ -14,7 +14,7 @@ var copyPassword = document.querySelector("#copyInfo")
 // Clear button
 var clearPassword = document.querySelector("#clearInfo")
 
-// Criteria Arrays ("i" & "l" removed as they look similar in certain fonts ). Is upper converts the islower into uppercase.
+// Criteria Arrays ("i" & "l" removed as they look similar in certain fonts ). isUpper converts islower into uppercase.
 var isLower = ["a", "b", "c", "d", "e", "f", "g", "h", "j", "k", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
 var isUpper = isLower.map(element => {return element.toUpperCase();});
 var isNum = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9];
@@ -54,7 +54,7 @@ function checkPrompt() {
 };
 }
 
-// Generate password funtion - if statements to concatenate arrays selected arrays into one. // return the password that meets criteria
+// Generate password function - if statements to concatenate arrays selected arrays into one. // return the password that meets criteria
 function generatePassword() {
   if (checkUpper === true) {
     finalCriteria = finalCriteria.concat(isUpper)

@@ -9,6 +9,10 @@ var checkChar = true;
 
 // Generate Button 
 var generateBtn = document.querySelector("#generate");
+// Copy button
+var copyPassword = document.querySelector("#copyInfo")
+// Clear button
+var clearPassword = document.querySelector("#clearInfo")
 
 // Criteria Arrays ("i" & "l" removed as they look similar in certain fonts ). Is upper converts the islower into uppercase.
 var isLower = ["a", "b", "c", "d", "e", "f", "g", "h", "j", "k", "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z"];
@@ -44,10 +48,7 @@ function checkPrompt() {
 };
 }
 
-//if statements to concatenate arrays selected arrays into one. 
-
-
-// function to return the password 
+// Generate password funtion - if statements to concatenate arrays selected arrays into one. // return the password that meets criteria
 function generatePassword() {
   if (checkUpper === true) {
     finalCriteria = finalCriteria.concat(isUpper)
@@ -66,8 +67,6 @@ function generatePassword() {
   } return password  
 }
 
-
-
 // Write password to the #password input
 function writePassword() {
   checkPrompt()
@@ -76,9 +75,26 @@ function writePassword() {
   passwordText.value = password;
 
 }
+
+// Function to copy generated password to clipboard. 
+function copyFunc() {
+  var copytoClipboard = password;
+  navigator.clipboard.writeText(copytoClipboard)
+}
+
+// Function to copy generated password to clipboard. 
+function clearFunc() {
+  var passwordText = document.querySelector("#password");
+  passwordText.value = "";
+}
+
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword)
 
-//add event listener to copy to clipboard.
 
+// Add event listener to copy to clipboard.
+copyPassword.addEventListener("click", copyFunc)
+
+// Add event listener to clear generated password.
+clearPassword.addEventListener("click", clearFunc)
 

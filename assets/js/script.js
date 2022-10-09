@@ -36,11 +36,17 @@ function checkCriteria() {
     alert("You must select ok for at least one of the following criteria"), addCriteria();
   }
 }
- // function to prompt the user to input a password length
+
+// function to prompt the user to input a password length
 function checkPrompt() {
   charLength = prompt("Choose a password length");
-  // Checks if input is meets character length criteria, if not it recalls the function after alert has been acknowledged.
-  if (charLength < 8 || charLength > 128) {
+  var checkInput = parseInt(charLength)
+  //checks if value is number. If not reload prompt
+  if (Number.isNaN(checkInput)) { 
+    alert("Input must be a Number"), checkPrompt()
+  }
+  // checks length of input. if criteria not met reload.
+  else if (charLength < 8 || charLength > 128) {
     alert("Minimum 8 & Maximum 128 character length"), checkPrompt();
   } else { 
     addCriteria()
@@ -86,6 +92,8 @@ function copyFunc() {
 function clearFunc() {
   var passwordText = document.querySelector("#password");
   passwordText.value = "";
+  finalCriteria = [];
+  password = "";
 }
 
 // Add event listener to generate button

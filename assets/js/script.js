@@ -44,9 +44,8 @@ function checkPrompt() {
   //checks if value is number. If not reload prompt
   if (Number.isNaN(checkInput)) { 
     alert("Input must be a Number"), checkPrompt()
-  }
-  // checks length of input. if criteria not met reload.
-  else if (charLength < 8 || charLength > 128) {
+  } else if (charLength < 8 || charLength > 128) {
+    // checks length of input. if criteria not met reload.
     alert("Minimum 8 & Maximum 128 character length"), checkPrompt();
   } else { 
     addCriteria()
@@ -84,8 +83,8 @@ function writePassword() {
 
 // Function to copy generated password to clipboard. 
 function copyFunc() {
-  var copytoClipboard = password;
-  navigator.clipboard.writeText(copytoClipboard)
+  var copyToClipboard = password;
+  navigator.clipboard.writeText(copyToClipboard)
 }
 
 // Function to copy generated password to clipboard. 
@@ -98,7 +97,6 @@ function clearFunc() {
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword)
-
 
 // Add event listener to copy to clipboard.
 copyPassword.addEventListener("click", copyFunc)

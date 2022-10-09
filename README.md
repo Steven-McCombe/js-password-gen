@@ -15,3 +15,4 @@ This project is to create a functioning JavaScript file that interacts with a we
 
 - HTML and CSS - Courtesy of [Columbia Coding Bootcamp.](https://bootcamp.cvn.columbia.edu/)
 - Copy Button Logic - Courtesy of [MDN WebDocs](https://developer.mozilla.org/en-US/docs/Web/API/Clipboard/writeText)
+- Convert array to Uppercase - Courtesy of [StackOverflow](https://stackoverflow.com/questions/29719329/convert-array-into-upper-case)

@@ -39,6 +39,7 @@ function checkCriteria() {
 
 // function to prompt the user to input a password length
 function checkPrompt() {
+  clearFunc()
   charLength = prompt("Choose a password length");
   var checkInput = parseInt(charLength)
   //checks if value is number. If not reload prompt
